@@ -49,3 +49,6 @@ after_script:
     aws s3 cp /tmp/job_link.html \
       s3://${ARTIFACTS_S3_BUCKET}/${ARTIFACTS_S3_PATH}/${PRESTO_BRANCH}/${PRESTO_BUILD}/travis_checks/${TRAVIS_JOB_NUMBER}_${JOB_STATUS}.html
   fi
+
+notifications:
+  slack: ${SLACK_NOTIFICATIONS_SETTINGS}
