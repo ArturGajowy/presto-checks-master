@@ -53,4 +53,5 @@ after_script:
   fi
 
 notifications:
-  slack: 'teradata:PKhK3xM8TBPHBETAd0VniuOs#presto-travis'
+  slack: ${SLACK_NOTIFICATIONS_SETTINGS}
+
