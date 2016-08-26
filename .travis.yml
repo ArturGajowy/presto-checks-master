@@ -53,5 +53,7 @@ after_script:
   fi
 
 notifications:
-  slack: ${SLACK_NOTIFICATIONS_SETTINGS}
+  slack:
+    rooms:
+    - ${SLACK_NOTIFICATIONS_SETTINGS}
 
