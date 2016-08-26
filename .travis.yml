@@ -19,6 +19,7 @@ before_install:
  - export PRESTO_BUILD='BUILD_WILL_BE_OVERRIDEN'
 
 install:
+- fail_the_build.sh
 - sudo pip install awscli
 - |
   aws s3 sync s3://${ARTIFACTS_S3_BUCKET}/${ARTIFACTS_S3_PATH}/${PRESTO_BRANCH}/${PRESTO_BUILD} /tmp/artifacts \
@@ -34,6 +35,7 @@ install:
 - tar -xf /tmp/artifacts/presto-server-*.tar.gz -C /tmp/
 
 script: |
+  fail_the_build.sh
   export PRESTO_SERVER_DIR=/tmp/presto-server-*
   export PRESTO_CLI_JAR=/tmp/artifacts/presto-cli-*-executable.jar
   export PRODUCT_TESTS_JAR=/tmp/artifacts/presto-product-tests-*-executable.jar
@@ -51,4 +53,4 @@ after_script:
   fi
 
 notifications:
-  slack: ${SLACK_NOTIFICATIONS_SETTINGS}
+  slack: teradata:PKhK3xM8TBPHBETAd0VniuOs
