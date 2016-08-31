@@ -34,7 +34,7 @@ install:
 - tar -xf /tmp/artifacts/presto-server-*.tar.gz -C /tmp/
 
 script: |
-  export HADOOP_MASTER_IMAGE='teradatalabs/hdp2.3-master:6'
+  export HADOOP_MASTER_IMAGE='teradatalabs/cdh5-hive:6'
   export PRESTO_SERVER_DIR=/tmp/presto-server-*
   export PRESTO_CLI_JAR=/tmp/artifacts/presto-cli-*-executable.jar
   export PRODUCT_TESTS_JAR=/tmp/artifacts/presto-product-tests-*-executable.jar
